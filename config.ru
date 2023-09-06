@@ -1,3 +1,0 @@
-require './Webhooks'
-
-run Application
