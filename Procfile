@@ -1,1 +1,1 @@
-web: bundle exec ruby Webhooks.rb
+web: bundle exec puma -C config/puma.rb
