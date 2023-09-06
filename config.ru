@@ -1,3 +1,3 @@
-require './Webhooks'
+require_relative 'Webhooks'
 
-run Sinatra::Application
+run Webhooks
