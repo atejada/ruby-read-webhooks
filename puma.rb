@@ -1,9 +1,7 @@
-#!/usr/bin/env puma
-# frozen_string_literal: true
-
-threads_count = ENV.fetch('PUMA_THREADS') { 5 }.to_i
+workers Integer(ENV['WEB_CONCURRENCY'] || 2)
+threads_count = Integer(ENV['THREAD_COUNT'] || 5)
 threads threads_count, threads_count
-
-port ENV.fetch('PORT') { 4567 }
-
-workers ENV.fetch('WORKERS') { 1 }.to_i
+                                                    
+rackup      DefaultRackup           
+port        ENV['PORT']     || 4567
+environment ENV['RACK_ENV'] || 'development'
