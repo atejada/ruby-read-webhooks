@@ -46,8 +46,7 @@ GEM
     yajl-ruby (1.4.3)
 
 PLATFORMS
-  ruby
-  x86_64-linux
+  arm64-darwin-22
 
 DEPENDENCIES
   nylas (= 6.0.0.beta.1)
@@ -57,4 +56,4 @@ DEPENDENCIES
   sinatra-contrib (= 3.1.0)
 
 BUNDLED WITH
-   2.1.2
+   2.4.19
