@@ -39,7 +39,7 @@ query_params = {
 	event[:participants].each do |elem|
 	    participants += "#{elem[:email]}; "
 	end
-    hook = webhook.new(event[:id], event[:date], event[:title], event[:description], participants, events[:status])
+    hook = webhook.new(event[:id], event[:date], event[:title], event[:description], participants, event[:status])
     webhooks.append(hook)
 	status 200
 	"Webhook received"	
