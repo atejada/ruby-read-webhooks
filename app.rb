@@ -63,6 +63,7 @@ query_params = {
 end
 
 get '/' do
+    puts webhooks
     erb :main, :locals => {:webhooks => webhooks}
 end
 
