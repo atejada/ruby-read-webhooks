@@ -36,8 +36,8 @@ query_params = {
     model = JSON.parse(request.body.read)
     event, _request_id = nylas.events.find(identifier: ENV["CALENDAR_ID"], object_id: model["data"]["object"]["id"], query_params: query_params) 
 	participants = ""
-	events[:participants].each do |elem|
-		participants += "#{elem[:email]}; "
+	event[:participants].each do |elem|
+	    participants += "#{elem[:email]}; "
 	end
     hook = webhook.new(event[:id], event[:date], event[:title], event[:description], participants, events[:status])
     webhooks.append(hook)
