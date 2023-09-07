@@ -31,7 +31,7 @@ query_params = {
     calendar_id: ENV["CALENDAR_ID"]
 }	
 	
-# We read the webhook information and store it on the database
+# We read the webhook information and store it on the data class
     request.body.rewind
     model = JSON.parse(request.body.read)
     event, _request_id = nylas.events.find(identifier: ENV["CALENDAR_ID"], object_id: model["data"]["object"]["id"], query_params: query_params) 
