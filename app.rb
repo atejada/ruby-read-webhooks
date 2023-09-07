@@ -43,11 +43,15 @@ query_params = {
     
     case event[:when][:object]
         when 'timespan'
-	    start_time = Time.at(event[:when][:start_time])
-	    end_time = Time.at(event[:when][:end_time])
-	    event_date = "#{start_time} to #{end_time}"	    
+	    start_time = Time.at(event[:when][:start_time]).strftime('%m-%d-%Y %H:%M:%S')
+	    end_time = Time.at(event[:when][:end_time]).strftime('%m-%d-%Y %H:%M:%S')
+	    event_date = "#{start_time} to #{end_time}"
+	when 'datespan'
+            start_time = event[:when][:start_date].strftime('%m-%d-%Y')
+	    end_time = event[:when][:end_date].strftime('%m-%d-%Y')
+	    event_date = "#{start_time} to: #{end_time}"	    
 	when 'date'
-	    start_time = event[:when][:date]
+	    start_time = event[:when][:date].strftime('%m-%d-%Y')
 	    event_date = "#{start_time} "
     end
     hook = webhook.new(event[:id], event_date, event[:title], event[:description], participants, event[:status])
