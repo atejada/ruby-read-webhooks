@@ -22,8 +22,7 @@ post '/webhook' do
 
 # Initialize Nylas client
     nylas = Nylas::Client.new(
-	    api_key: ENV["V3_TOKEN"],
-	    api_uri: ENV["V3_HOST"]
+	    api_key: ENV["V3_TOKEN"]
     )
 	
 # Query parameters
@@ -35,7 +34,7 @@ query_params = {
     request.body.rewind
     model = JSON.parse(request.body.read)
     if model["data"]["object"]["calendar_id"] == ENV["CALENDAR_ID"]
-        event, _request_id = nylas.events.find(identifier: ENV["CALENDAR_ID"], object_id: model["data"]["object"]["id"], query_params: query_params) 
+        event, _request_id = nylas.events.find(identifier: ENV["GRANT_ID"], object_id: model["data"]["object"]["id"], query_params: query_params) 
         participants = ""
         event_date = ""
         event[:participants].each do |elem|
