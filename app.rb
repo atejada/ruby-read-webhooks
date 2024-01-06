@@ -6,13 +6,13 @@ require "sinatra/config_file"
 webhook = Data.define(:id, :date, :title, :description, :participants, :status)
 webhooks = Array.new
 
-get '/webhook' do
+get '/webhooks' do
     if params.include? "challenge"
 	    "#{params['challenge']}"
    end
 end
 
-post '/webhook' do
+post '/webhooks' do
 # We need to verify that the signature comes from Nylas
     is_genuine = verify_signature(message = request.body.read, key = ENV['CLIENT_SECRET'], signature = request.env['HTTP_X_NYLAS_SIGNATURE'])
     if !is_genuine
