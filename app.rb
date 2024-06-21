@@ -6,7 +6,7 @@ require "sinatra/config_file"
 webhook = Data.define(:id, :date, :title, :description, :participants, :status)
 webhooks = Array.new
 
-get '/webhooks' do
+get '/webhook' do
     if params.include? "challenge"
 	    "#{params['challenge']}"
    end
