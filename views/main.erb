@@ -12,9 +12,11 @@
 <h1 class='h1'>Webhooks</h1>
 <% webhooks.each do |item| %>
   <div class='webhook'>
-    <p><b>Id:</b> <%= item.id %> | <b>Date:</b> <%= item.date %> | <b>Title:</b> <%= item.title %> | 
+          <p><b>Id:</b> <%= item.id %> | <b>Date:</b> <%= item.time %> | <b>Reason:</b> <%= item.bounce_reason %> | 
+          <b>Address:</b> <%= item.bounce_address %></p>
+    <!--<p><b>Id:</b> <%= item.id %> | <b>Date:</b> <%= item.date %> | <b>Title:</b> <%= item.title %> | 
           <b>Description:</b> <%= item.description %> | <b>Participants:</b> <%= item.participants %> |
-          <b>Status:</b> <%= item.status %></p>
+          <b>Status:</b> <%= item.status %></p>-->
 
   </div>
 <% end %>
