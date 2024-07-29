@@ -21,6 +21,8 @@ post '/webhook' do
         "Signature verification failed!"
     end
 
+    puts("Webhook verified")
+
 # Initialize Nylas client
     nylas = Nylas::Client.new(
 	    api_key: ENV["V3_TOKEN"]
@@ -36,8 +38,7 @@ post '/webhook' do
     model = JSON.parse(request.body.read)
     
     # Bounce detection starts
-    model["data"]["object"]
-
+    puts("Bounce should start")
     hook = webhook.new(model["data"]["id"], model["data"]["time"], model["data"]["object"]["bounce_reason"], model["data"]["object"]["bounce_address"])
     webhooks.append(hook)
     # Bounce detection ends
