@@ -62,10 +62,10 @@ post '/webhook' do
     #      when 'date'
     #          start_time = event[:when][:date].strftime('%m-%d-%Y') 
     #          event_date = "#{start_time} "
-    #end
+    #      end
     #    hook = webhook.new(event[:id], event_date, event[:title], event[:description], participants, event[:status])
     #    webhooks.append(hook)
-    end
+    #end
 	status 200
 	"Webhook received"	
 end
