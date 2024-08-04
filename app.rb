@@ -14,6 +14,7 @@ get '/webhook' do
 end
 
 post '/webhook' do
+    puts "Calling the Webhook"	
 # We need to verify that the signature comes from Nylas
     is_genuine = verify_signature(message = request.body.read, key = ENV['CLIENT_SECRET'], signature = request.env['HTTP_X_NYLAS_SIGNATURE'])
     if !is_genuine
