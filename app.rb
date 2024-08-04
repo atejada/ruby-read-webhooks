@@ -37,7 +37,7 @@ post '/webhook' do
 # We read the webhook information and store it on the data class
     request.body.rewind
     model = JSON.parse(request.body.read)
-    
+    puts(model)
     # Bounce detection starts
     puts("Bounce should start")
     hook = webhook.new(model["data"]["id"], model["data"]["time"], model["data"]["object"]["bounce_reason"], model["data"]["object"]["bounce_address"])
